@@ -28,7 +28,7 @@ jobs:
      - run:
          name: Prepare db
          command: |
-           bin/rails db:create db:migr
+           bin/rails db:create db:migrate
      # run tests!
      - run:
          name: Run rspec
