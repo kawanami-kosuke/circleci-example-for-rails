@@ -25,8 +25,14 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: circleci-example-for-rails_test
+ adapter: mysql2
+ encoding: utf8
+ pool: 5
+ username: <%= ENV.fetch("MYSQL_USER", "root") %>
+ password:
+ host: <%= ENV.fetch("MYSQL_HOST", "127.0.0.1") %>
+ port: <%= ENV.fetch("MYSQL_PORT", "3306") %>
+ database: <%= ENV.fetch("MYSQL_DATABASE", "circleci-example-for-rails_test") %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
